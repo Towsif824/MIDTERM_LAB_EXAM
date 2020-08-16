@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home page</title>
+	<style>
+	table.center {
+				margin-left: auto;
+				margin-right: auto;
+			}
+	</style>
+
+</head>
+<body>
+	<h1 align="center">Welcome Home! <%= userlist.name %></h1>
+	<form method="post">
+		<input type="submit" name="choice" value="AllEmpList">
+		<input type="submit" name="choice" value="addEmployee">
+	</form>
+	<fieldset block="in">
+		<table class="center">
+			<tr>
+				<td>ID:</td><td><%= userlist.id %></td>
+			</tr>
+			<tr>
+				<td>Name:</td><td><%= userlist.name %></td>
+		</table>
+	</fieldset>
+	<b><a href="/logout">Logout</a></b>
+</body>
+</html>
