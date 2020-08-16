@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ProductList</title>
+
+
+</head>
+<body>
+	<center>
+		<h1>Products</h1>
+		<h2>Employee: <%= username %></h2>
+	</center>
+    	<% for(var i=0; i < userList.length; i++){ %>
+		<table class="center" border="1">
+			 <tr>
+        <th>Id</th>
+        <th>Product Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Operations</th>
+      </tr>
+
+      <tr>
+        <td><%= userList[i].id %></td>
+        <td><%= userList[i].productName %></td>
+        <td><%= userList[i].quantity %></td>
+        <td><%= userList[i].price %></td>
+        <td><a href="/employee/update/<%= userList[i].id %>">EDIT</a>|<a href="/employee/delete/<%= userList[i].id %>"> DELETE </a></td>
+    </tr>
+		</table>
+    <% } %>
+    <b><a href="/employee">Back</a>|<a href="/logout">Logout</a></b>
+</body>
+</html>

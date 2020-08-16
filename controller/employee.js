@@ -15,19 +15,17 @@ router.get('/',function(req,res){
 
 });
 
+router.get('/AllProducts', function(req, res){
+
+	userModel.getAllProduct(function(results){
+    console.log(results);
+		res.render('employee/allproducts', { userList : results, username: req.session.username});
+	});
+});
+
 router.post('/',function(req,res){
-	if (req.body.choice == "myProfile"){
-		res.redirect('/employee/myProfile/');
-	}else if(req.body.choice =="updateProfile"){
-		userModel.getUserByUsername(req.session.username, function(results){
-        if(results.length > 0){
-           
-             res.redirect('/employee/updateProfile/'+results[0].id);
-          }else{
-             res.redirect('/employee');
-          }
-      });
-		
+	if (req.body.choice == "addProduct"){
+		res.redirect('/employee/addProduct/');
 	}	
 	
 });
@@ -44,32 +42,31 @@ router.get('/myProfile',function(req,res){
 });
 
 
-router.get('/updateProfile/:id', function(req, res){
 
-	userModel.getUserByUsername(req.session.username, function(result){
-		res.render('employee/updateProfile', {user: result[0]});
-	});
+router.get('/update/:id', function(req, res){
 
+  userModel.getByProductId(req.params.id, function(result){
+    res.render('employee/update',{user : result});
+  });
 });
 
-router.post('/updateProfile/:id', function(req, res){
+router.post('/update/:id', function(req, res){
 
   var user = {
-  	name 			: req.body.name,
-  	username 		: req.body.username,
-    password     	: req.body.password,
-    phone     	 	: req.body.phone,
 
-	id 				: req.params.id
-	
-	}
+    productName: req.body.productName,
+    quantity: req.body.quantity,
+    price: req.body.price,
+    id: req.params.id
+  };
 
-	userModel.updateEmployee(user, function(status){
-		if(status){
-			res.redirect('/employee');
-		}else{
-			res.redirect('/employee/updateProfile/'+req.params.id);
-		}
-	});
+  userModel.productUpdate(user, function(status){
+    if(status){
+      res.redirect('/employee/AllProducts');
+
+    }else{
+      res.redirect('/employee/update/'+req.params.id);
+    }
+  });
 });
 module.exports = router;
