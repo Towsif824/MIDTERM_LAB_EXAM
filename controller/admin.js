@@ -74,9 +74,6 @@ router.post('/addEmployee',function(req,res){
             username    : req.body.username,
             password    : req.body.password,
             phone       : req.body.phone,
-            address     : req.body.address,
-            gender      : req.body.gender,
-            designation : req.body.designation,
             type        : req.body.type
           }
 
@@ -107,7 +104,6 @@ router.post('/update/:id', function(req, res){
     username: req.body.username,
     password: req.body.password,
     phone: req.body.phone,
-    designation :req.body.designation,
     id: req.params.id
   };
 
