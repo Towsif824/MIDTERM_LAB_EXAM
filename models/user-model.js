@@ -36,17 +36,17 @@ module.exports ={
 		});
 	},
 
-insert: function(user, callback){
-		var sql = "insert into users values('', '"+user.name+"', '"+user.username+"', '"+user.password+"', '"+user.phone+"', '"+user.type+"')";
-		console.log(sql);
-		db.execute(sql, function(status){
-			if(status){
-				callback(true);
-			}else{
-				callback(false);
-			}
-		});
-	},
+	insert: function(user, callback){
+			var sql = "insert into users values('', '"+user.name+"', '"+user.username+"', '"+user.password+"', '"+user.phone+"', '"+user.type+"')";
+			console.log(sql);
+			db.execute(sql, function(status){
+				if(status){
+					callback(true);
+				}else{
+					callback(false);
+				}
+			});
+		},
 
 	update: function(user,callback){
     var sql = "update users set name ='"+user.name+"' ,username='"+user.username+"', password='"+user.password+"', phone='"+user.phone+"' , type='"+user.type+"'  where id='"+user.id+"'";
@@ -121,6 +121,29 @@ insert: function(user, callback){
 				callback(result[0]);
 			}else{
 				callback([]);
+			}
+		});
+	},
+
+	insertProduct: function(user, callback){
+			var sql = "insert into products values('', '"+user.productName+"', '"+user.quantity+"', '"+user.price+"')";
+			console.log(sql);
+			db.execute(sql, function(status){
+				if(status){
+					callback(true);
+				}else{
+					callback(false);
+				}
+			});
+		},
+
+		deleteProduct: function(id, callback){
+		var sql = "delete from products where id="+id;
+		db.execute(sql, function(status){
+			if(status){
+				callback(true);
+			}else{
+				callback(false);
 			}
 		});
 	},

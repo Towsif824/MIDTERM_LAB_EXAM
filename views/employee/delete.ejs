@@ -6,30 +6,23 @@
 <body>
   
 
-    <form method="post" enctype="multipart/form-data">
+    <form method="post">
 
       <fieldset>
-        <legend>SignUp</legend>
+        <legend>Delete</legend>
         <table>
           <tr>
-            <td>Name:</td>
-            <td><%= user.name %></td>
+            <td>Product Name:</td>
+            <td><%= user.productName %></td>
           </tr>
           <tr>
-            <td>User Name</td>
-            <td><%= user.username %></td>
+            <td>Quantity</td>
+            <td><%= user.quantity %></td>
           </tr>
           <tr>
-            <td>Password</td>
-            <td><%= user.password %></td>
+            <td>Price</td>
+            <td><%= user.price %></td>
           </tr>
-          <tr>
-            <td>Phone:</td>
-            <td><%= user.phone %></td>
-          </tr>
-          <tr>
-            <td>Type</td>
-            <td><%= user.type %></td>
           <tr>
             <td><h3>Are you sure? This can't be undone!</h3><br></td>
             <td>
@@ -40,7 +33,7 @@
         </table>
       </fieldset>
     </form>
-    <a href="/admin/AllEmpList">EmpList</a> | <a href="/logout">Logout</a>
+    <a href="/employee/AllProducts">Product List</a> | <a href="/logout">Logout</a>
     <br>
 </body>
 </html>
