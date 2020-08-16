@@ -104,6 +104,7 @@ router.post('/update/:id', function(req, res){
     username: req.body.username,
     password: req.body.password,
     phone: req.body.phone,
+    type : req.body.type,
     id: req.params.id
   };
 
