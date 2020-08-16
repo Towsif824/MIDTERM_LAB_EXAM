@@ -80,4 +80,15 @@ insert: function(user, callback){
 		});
 	},
 
+	getSearch : function(search,type, callback){
+		var sql = "select * from users where (id='"+search+"' or name='"+search+"' or username='"+search+"') and type='"+type+"'";
+		db.getResults(sql, function(results){
+			if(results.length > 0 ) {
+				callback(results);
+			}else{
+				callback([]);
+			}
+		});
+	},
+
 }

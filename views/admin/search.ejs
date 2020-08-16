@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Search</title>
+</head>
+<body>
+	<h1>Search result </h1>
+	<table border="1">
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>User Name</th>
+			<th>Phone</th>
+		</tr>
+		<% for(var i=0; i < userList.length; i++){ %>
+		<tr>
+			<td><%= userList[i].id %></td>
+			<td><%= userList[i].name %></td>
+			<td><%= userList[i].username %></td>
+      		<td><%= userList[i].phone %></td>
+      		<td><a href="/admin/update/<%= userList[i].id %>">EDIT</a> |
+				  <a href="/admin/delete/<%= userList[i].id %>"> DELETE </a></td>
+		</tr>
+		<% } %>
+	</table>
+	<b><a href="/admin/AllEmpList">Back</a> | <a href="/logout">Logout</a></b>
+</body>
+</html>
